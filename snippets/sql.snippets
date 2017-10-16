@@ -1,7 +1,19 @@
-snippet tbl
+snippet tbl create table
 	create table ${1:table} (
 		${0:columns}
 	);
+snippet sel select from where
+	select ${1:rows}
+	from ${2:table}
+	where ${3:condition};
+snippet alt alter table
+	alter table ${1:table}
+	${2:VERB}
+snippet view create view
+	create view ${1:view} as
+		select ${2:rows}
+		from ${3:table}
+		where ${4:condition};
 snippet col
 	${1:name}	${2:type}	${3:default ''}	${0:not null}
 snippet ccol
@@ -15,6 +27,8 @@ snippet ind
 snippet ins
 	insert into ${1:table} (${2:columns})
 	values (${0:values});
+snippet del
+	delete from ${1:table} where ${2:condition}
 snippet uind
 	create unique index ${1:name} on ${2:table}(${0:column});
 snippet tblcom
@@ -27,3 +41,45 @@ snippet seq
 	create sequence ${1:name} start with ${2:1} increment by ${3:1} minvalue ${0:1};
 snippet s*
 	select * from ${0:table}
+snippet fun function sp
+	create or replace function ${1:fn_name}(${2:params})
+	returns ${3:type} as $$
+snippet lpl langugae plpgsql
+	$$ language plpgsql;
+snippet int integer
+	integer
+snippet str varchar
+	varchar(${1:255})
+snippet ts timestamp
+	timestamp
+snippet spk serial primary key
+	${1:id} serial primary key
+snippet pk
+	${1:id} primary key
+snippet fk foreign key references
+	foreign key ${1:row} references ${2:table}
+snippet ref references
+	references
+snippet ch check
+	check (${1:condition}) DEFAULT ${2:default}
+snippet crep create or replace
+	create or replace ${1:thing}
+snippet upd update
+	update ${1:table} set ${2:row} where ${3:condition}
+snippet ev explain verbose
+	explain verbose
+snippet crule create rule
+	create rule ${1:name} as on ${2:action} to ${3:table} do instead
+		${4:action}
+snippet c* count
+	count(*)
+snippet gb group by
+	group by ${1:row(s)}
+snippet ob order by
+	order by ${1:row(s)}
+snippet ext extract
+	extract(${1:field} from ${2:source})
+snippet uni unique
+	unique
+snippet nn not null
+	not null
