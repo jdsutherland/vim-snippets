@@ -714,3 +714,54 @@ snippet agg
 	aggregate_failures '${1:message}' do
 		${0}
 	end
+# capybara
+snippet atf
+	attach_file '${1:locator}', '${2:/path/to/file}'
+snippet back
+	background do
+		${1}
+	end
+snippet che
+	check '${1:locator}'
+snippet cho
+	choose '${1:locator}'
+snippet cli
+	click_on '${1:locator}'
+snippet clib
+	click_button '${1:locator}'
+snippet clil
+	click_link '${1:locator}'
+snippet fea
+	feature ${1:`substitute(substitute(vim_snippets#Filename(), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+		${2}
+	end
+snippet fill
+	fill_in '${1:locator}', :with => '${2:value}'
+snippet fin
+	'${1:locator}'
+snippet psh
+	page.should ${1:have}_${2:something}('${3:expected}')
+snippet sav
+	save_and_open_page
+snippet sce
+	scenario '${1:should do something}' do
+		${2}
+	end
+snippet sel
+	select '${1:option}', :from => '${2:select}'
+snippet unch
+	uncheck '${1:selector}'
+snippet vis
+	visit '${1:url}'
+snippet wit
+	within '${1:selector}' do
+		${2}
+	end
+snippet witf
+	within_fieldset '${1:locator}' do
+		${2}
+	end
+snippet witt
+	within_table '${1:locator}' do
+		${2}
+	end
